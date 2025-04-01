@@ -1,3 +1,4 @@
+using BlogApp.Data;
 using BlogApp.Models;
 using BlogApp.Services;
 using Microsoft.AspNetCore.Identity;
@@ -24,11 +25,14 @@ namespace BlogApp
 
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddRazorPages();
+
             builder.Services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(40);
-                options.LoginPath = "Account/Login";
+                //options.LoginPath = "/Auth/Login";
+                options.LoginPath = "/Blog/Index";
                 options.SlidingExpiration = true;
             });
 
@@ -44,7 +48,7 @@ namespace BlogApp
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserModel>>();
 
                 string[] roles = { "Admin", "User" };
 
@@ -68,7 +72,7 @@ namespace BlogApp
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
+            
             app.MapRazorPages();
 
             app.Run();

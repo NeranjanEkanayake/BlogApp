@@ -47,6 +47,14 @@ namespace BlogApp.Controllers
                 return RedirectToAction("Index", "Blog");
             }
             return View();
-        }        
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Blog");
+        }
     }
 }

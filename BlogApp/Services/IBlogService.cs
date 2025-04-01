@@ -1,4 +1,5 @@
-﻿using BlogApp.Models;
+﻿using BlogApp.Data;
+using BlogApp.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Services
