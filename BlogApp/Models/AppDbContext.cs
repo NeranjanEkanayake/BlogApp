@@ -10,6 +10,8 @@ namespace BlogApp.Models
 
         public DbSet<BlogModel> Blogs { get; set; }
 
+        public DbSet<CommentsModel> Comments { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

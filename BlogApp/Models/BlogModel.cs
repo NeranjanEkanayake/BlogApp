@@ -6,7 +6,7 @@ namespace BlogApp.Models
     public class BlogModel
     {
         [Key]
-        public int Id { get; set; }
+        public int BlogId { get; set; }
         [Required]
         [StringLength(50)]
         public string Title { get; set; }

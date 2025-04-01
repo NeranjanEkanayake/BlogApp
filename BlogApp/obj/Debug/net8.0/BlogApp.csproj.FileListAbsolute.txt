@@ -7,11 +7,7 @@ D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.deps.json
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.runtimeconfig.json
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.pdb
-D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\EntityFramework.SqlServer.dll
-D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\EntityFramework.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Humanizer.dll
-D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNet.Identity.Core.dll
-D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Build.Locator.dll
@@ -141,3 +137,4 @@ D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\refint\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.pdb
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.genruntimeconfig.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\ref\BlogApp.dll
+D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
