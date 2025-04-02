@@ -69,10 +69,13 @@ namespace BlogApp
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //TODO: Change the default loader in the below,
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             
+            //when this route triggers, the URL will look like below
+            // /Home/Index/1
             app.MapRazorPages();
 
             app.Run();

@@ -7,20 +7,19 @@ namespace BlogApp.Models
     {
         [Key]
         public int Id { get; set; }
-        
-        public string Content { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public required string Content { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; }
-
-        public string UserId { get; set; }
-
+               
+        [StringLength(10)]
+        public required string UserId { get; set; }                
         [ForeignKey("UserId")]
-        public UserModel Author { get; set; }
-
-        public int BlogId { get; set; }
-
+        public required UserModel Author { get; set; }
+                
+        public required int BlogId { get; set; }               
         [ForeignKey("BlogId")]
-        public BlogModel Blog { get; set; }
+        public required BlogModel Blog { get; set; }
     }
 }

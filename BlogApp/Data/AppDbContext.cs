@@ -19,6 +19,21 @@ namespace BlogApp.Data
 
             builder.Entity<UserModel>().ToTable("Users");
             builder.Entity<BlogModel>().ToTable("Blogs");
+            builder.Entity<CommentsModel>().ToTable("Comments");
+
+            builder.Entity<BlogModel>()
+                .HasMany(b=>b.Comments)
+                .WithOne(b=>b.Blog)
+                .HasForeignKey(b=>b.BlogId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<CommentsModel>()
+                .HasOne(c=>c.Author)
+                .WithMany()
+                .HasForeignKey(c=>c.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
         }
     }
 }

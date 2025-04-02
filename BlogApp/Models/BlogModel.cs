@@ -9,18 +9,20 @@ namespace BlogApp.Models
         public int BlogId { get; set; }
         [Required]
         [StringLength(50)]
-        public string Title { get; set; }
+        public required string Title { get; set; }
         [Required]
         [StringLength(200)]
-        public string Description { get; set; }
+        public required string Description { get; set; }
         [Required]
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 
         [Required]
-        public string UserId {  get; set; }
+        public required string UserId {  get; set; } 
         [Required]
         [ForeignKey("UserId")]
         public UserModel? Author { get; set; }
         
+        [Required]
+        public ICollection<CommentsModel> Comments { get; set; } = new List<CommentsModel>();
     }
 }
