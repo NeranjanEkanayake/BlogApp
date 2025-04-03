@@ -13,6 +13,7 @@ namespace BlogApp.Services
         Task DeleteBlogAsync(int id);
 
         Task<List<CommentsModel>> GetCommentsByBlogIdAsync(int blogId);
+        Task<BlogModel> GetBlogWithCommentsAsync(int blogId);
         Task AddCommentAsync(CommentsModel comment);
     }
 
@@ -60,6 +61,14 @@ namespace BlogApp.Services
         public async Task<List<CommentsModel>> GetCommentsByBlogIdAsync(int blogId)
         {
             return await _appDbContext.Comments.Where(c=>c.BlogId == blogId).ToListAsync();
+        }
+
+        public async Task<BlogModel> GetBlogWithCommentsAsync(int blogId)
+        {
+            return await _appDbContext.Blogs
+                .Include(b => b.Comments)
+                .ThenInclude(c => c.Author) 
+                .FirstOrDefaultAsync(b => b.BlogId == blogId);
         }
 
         public async Task AddCommentAsync(CommentsModel comment)

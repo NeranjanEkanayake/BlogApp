@@ -32,8 +32,6 @@ namespace BlogApp.Data
                 .WithMany()
                 .HasForeignKey(c=>c.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-
         }
     }
 }

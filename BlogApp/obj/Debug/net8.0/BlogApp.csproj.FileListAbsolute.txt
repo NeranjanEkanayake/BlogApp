@@ -8,7 +8,10 @@ D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.runtimeconfig.json
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.pdb
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Humanizer.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Build.Locator.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -27,6 +30,9 @@ D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Configuration.A
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
@@ -115,6 +121,7 @@ D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.GeneratedMSBuildEditorConfig
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.AssemblyInfoInputs.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.AssemblyInfo.cs
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.csproj.CoreCompileInputs.cache
+D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.MvcApplicationPartsAssemblyInfo.cs
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.MvcApplicationPartsAssemblyInfo.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.RazorAssemblyInfo.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.RazorAssemblyInfo.cs
@@ -131,10 +138,10 @@ D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets\msbuild.build.BlogAp
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BlogApp.props
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BlogApp.props
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets.pack.json
+D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.csproj.Up2Date
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\refint\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.pdb
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.genruntimeconfig.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\ref\BlogApp.dll
-D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

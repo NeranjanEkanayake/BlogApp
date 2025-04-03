@@ -22,6 +22,7 @@ namespace BlogApp
                 .AddDefaultTokenProviders();
 
             builder.Services.AddScoped<IBlogService, BlogService>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             builder.Services.AddControllersWithViews();
 
@@ -35,6 +36,16 @@ namespace BlogApp
                 options.LoginPath = "/Blog/Index";
                 options.SlidingExpiration = true;
             });
+
+            builder.Services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+            });
+
 
             var app = builder.Build();
 
@@ -59,6 +70,31 @@ namespace BlogApp
                         await roleManager.CreateAsync(new IdentityRole(role));
                     }
                 }
+                var adminUsers = await userManager.GetUsersInRoleAsync("Admin");
+                if (!adminUsers.Any())
+                {
+                    var adminUser = new UserModel
+                    {
+                        UserName = "admin",
+                        Name = "Admin",
+
+                    };
+                    var result = await userManager.CreateAsync(adminUser, "123");
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(adminUser, "Admin");
+                        Console.WriteLine("Admin user created and assigned to role");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to create admin user. Errors: ");
+                        foreach (var error in result.Errors)
+                        {
+                            Console.WriteLine(error.Description);
+                        }
+                    }
+                }
+
             }
 
             app.UseHttpsRedirection();
@@ -72,7 +108,7 @@ namespace BlogApp
             //TODO: Change the default loader in the below,
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Blog}/{action=Index}/{id?}");
             
             //when this route triggers, the URL will look like below
             // /Home/Index/1

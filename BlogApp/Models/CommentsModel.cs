@@ -12,14 +12,17 @@ namespace BlogApp.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; }
-               
-        [StringLength(10)]
-        public required string UserId { get; set; }                
+
+        //connect to UserModel
+        public required string UserId { get; set; }
+        public required int BlogId { get; set; }
+
         [ForeignKey("UserId")]
-        public required UserModel Author { get; set; }
-                
-        public required int BlogId { get; set; }               
+        public UserModel Author { get; set; }
+
+        //Connect to BlogModel
+                       
         [ForeignKey("BlogId")]
-        public required BlogModel Blog { get; set; }
+        public BlogModel Blog { get; set; }
     }
 }

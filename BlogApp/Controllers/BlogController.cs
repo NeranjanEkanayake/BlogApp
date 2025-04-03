@@ -8,7 +8,6 @@ using System.Reflection.Metadata;
 
 namespace BlogApp.Controllers
 {
-    [Authorize]
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;
@@ -18,15 +17,20 @@ namespace BlogApp.Controllers
             _blogService = blogService;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var blogs = await _blogService.GetAllAsync();
+            if (blogs == null)
+            {
+                blogs = new List<BlogModel>();
+            }
             return View(blogs);
         }
 
         // GET: BLogController/Create
         [Authorize(Roles = "Admin")]
-        public IActionResult Create()
+        public IActionResult CreateBlog()
         {
             return View();
         }
@@ -34,31 +38,53 @@ namespace BlogApp.Controllers
         // POST: BLogController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(BlogModel blogModel)
+        public async Task<IActionResult> CreateBlog(BlogModel blogModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                blogModel.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                blogModel.CreatedDate = DateTime.Now;
-                await _blogService.AddBlogAsync(blogModel);
-                return RedirectToAction("Index");
+                if (User.Identity.IsAuthenticated)
+                {
+                    Console.WriteLine("user id: "+User.FindFirstValue(ClaimTypes.NameIdentifier));
+                    blogModel.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    blogModel.CreatedDate = DateTime.UtcNow;
+                    try
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            Console.WriteLine($"Blog model UId: {blogModel.UserId}");
+                            await _blogService.AddBlogAsync(blogModel);
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("Error:", "Model errors");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }                                     
+                }
+                return View(blogModel);
             }
-            return View(blogModel);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return View(blogModel);
+            }
         }
 
-
-        
         public async Task<IActionResult> Details(int id)
         {
-            var blogs = await _blogService.GetBlogIdAsync(id);
-            if(blogs == null)
+            var comments = await _blogService.GetBlogWithCommentsAsync(id);
+            //var blogs = await _blogService.GetBlogIdAsync(id);
+            if (comments == null)
             {
                 return NotFound();
             }
-            var comments = await _blogService.GetCommentsByBlogIdAsync(id);
-            ViewBag.Comments = comments;
-            return View(blogs);
+            
+            //ViewBag.Comments = comments;
+            return View(comments);
         }
 
         // GET: BLogController/Edit/5

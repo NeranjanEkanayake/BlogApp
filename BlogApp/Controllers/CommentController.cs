@@ -11,7 +11,7 @@ namespace BlogApp.Controllers
     {
         private readonly IBlogService _blogService;
         
-        public CommentController(IBlogService blogService)
+        public CommentController(IBlogService blogService, IUserService userService)
         {
             _blogService = blogService;
         }
@@ -22,12 +22,18 @@ namespace BlogApp.Controllers
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+            
             var comment = new CommentsModel
             {
-                Id = blogId,
+                BlogId = blogId,
                 Content = content,
                 UserId = userId,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow //change this, this is just for ref
             };
             await _blogService.AddCommentAsync(comment);
 

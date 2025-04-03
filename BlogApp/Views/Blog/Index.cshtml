@@ -1,15 +1,43 @@
-﻿@page
-@model List<BlogModel>
+﻿@model List<BlogModel>
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+        
     ViewData["Title"] = "Manage Blogs";
 }
 
 <h2 class="mb-4">Manage blogs</h2>
-<a class="btn btn-success mb-3" asp-controller="Blog" asp-action="Create">Create new blog</a>
+@if (User.IsInRole("Admin"))
+{
+    <a class="btn btn-success mb-3" asp-controller="Blog" asp-action="CreateBlog">Create new blog</a>
+}
+
 
 <div class="row">
     @* @for(int i = 0; i< Model.Count; i++) *@
-    @if(Model != null)
+    @* @if(Model != null) *@
+    @* { *@
+    @*     @foreach (var blog in Model) *@
+    @*     { *@
+    @*         <div class="col-md-4"> *@
+    @*             <div class="card shadow-sm mb-3"> *@
+    @*                 <div class="card-body"> *@
+    @*                     <h5 class="card-title">@blog.Title</h5> *@
+    @*                     <p class="card-text">@blog.Description</p> *@
+    @*                     <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.BlogId" class="btn btn-primary">View</a> *@
+    @*                     @if (User.IsInRole("Admin")) *@
+    @*                     { *@
+    @*                         <a asp-controller="Admin" asp-action="EditBlog" asp-route-id="@blog.BlogId" class="btn btn-warning">Edit</a> *@
+    @*                         <a asp-controller="Admin" asp-action="DeleteBlog" asp-route-id="@blog.BlogId" class="btn btn-danger">Delete</a> *@
+    @*                     }                         *@
+    @*                 </div> *@
+    @*             </div> *@
+    @*         </div> *@
+    @*     } *@
+    @* }else{ *@
+    @*     <p>No blogs available, Come back later</p> *@
+    @* } *@
+
+    @if (Model != null && Model.Count > 0)
     {
         @foreach (var blog in Model)
         {
@@ -19,14 +47,18 @@
                         <h5 class="card-title">@blog.Title</h5>
                         <p class="card-text">@blog.Description</p>
                         <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.BlogId" class="btn btn-primary">View</a>
-                        <a asp-controller="Admin" asp-action="EditBlog" asp-route-id="@blog.BlogId" class="btn btn-warning">Edit</a>
-                        <a asp-controller="Admin" asp-action="DeleteBlog" asp-route-id="@blog.BlogId" class="btn btn-danger">Delete</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-controller="Blog" asp-action="Edit" asp-route-id="@blog.BlogId" class="btn btn-warning">Edit</a>
+                            <a asp-controller="Blog" asp-action="Delete" asp-route-id="@blog.BlogId" class="btn btn-danger">Delete</a>
+                        }
                     </div>
                 </div>
             </div>
         }
-    }else{
+    }
+    else
+    {
         <p>No blogs available, Come back later</p>
     }
-    
 </div>
