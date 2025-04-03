@@ -124,7 +124,6 @@ namespace BlogApp.Controllers
             {
                 try
                 {
-                    // Preserve original values that shouldn't change
                     blogModel.UserId = existingBlog.UserId;
                     blogModel.CreatedDate = existingBlog.CreatedDate;
 
