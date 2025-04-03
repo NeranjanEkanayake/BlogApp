@@ -23,7 +23,9 @@
                             <a class="nav-link" href="@Url.Action("Index", "Blog")">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Logout", "Auth")">Logout</a>
+                            <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
+                                <button type="submit" class="nav-link btn btn-link">Logout</button>
+                            </form>
                         </li>
                     }
                     else

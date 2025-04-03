@@ -34,6 +34,7 @@ namespace BlogApp
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(40);
                 //options.LoginPath = "/Auth/Login";
                 options.LoginPath = "/Blog/Index";
+                options.LogoutPath = "/Auth/Logout";
                 options.SlidingExpiration = true;
             });
 
