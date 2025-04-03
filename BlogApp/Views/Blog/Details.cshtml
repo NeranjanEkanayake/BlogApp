@@ -3,46 +3,56 @@
 @{
     ViewData["Title"] = "View Single Blog";
 }
+<div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
 
-<div class="blog-description">
-    <p><strong>@Model.Title</strong></p>
-    <p><strong>Created on:</strong> @Model.CreatedDate.ToString("MMMM dd, yyyy")</p>
-    <p><strong>Description:</strong></p>
-    <p>@Model.Description</p>
-</div>
-
-<h4>Comments:</h4>
-<div class="comments-section">
-    @foreach (var comment in Model.Comments.OrderBy(c => c.CreatedAt))
-    {
-        <div class="comment">
-            <p><strong>@comment.Author.Name:</strong> @comment.Content</p>
-            <p><em>Posted on: @comment.CreatedAt.ToString("MMMM dd, yyyy")</em></p>
+        <div class="blog-description">
+            <h4>@Model.Title</h4>
+            <p><strong>Created on:</strong> @Model.CreatedDate.ToString("MMMM dd, yyyy")</p>
+            <p><strong>Description:</strong></p>
+            <p>@Model.Description</p>
         </div>
-    }
 
-    @if (User.Identity.IsAuthenticated)
-    {
-        <h4>Add a Comment</h4>
-        <form asp-controller="Comment" asp-action="AddComment" method="post">
-            <input type="hidden" name="BlogId" value="@Model.BlogId" />
-            <div class="form-group">
-                <label for="Content">Your Comment:</label>
-                <textarea id="Content" name="Content" class="form-control" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Submit Comment</button>
-        </form>
-    }
-    else
-    {
-        <p><a href="@Url.Action("Login", "Auth")">Sign in</a> to add a comment.</p>
-    }
-</div>
+        <h5>Comments:</h5>
+        <div class="comments-section">
+            @foreach (var comment in Model.Comments.OrderBy(c => c.CreatedAt))
+            {
+                <div class="comment">
+                    <p><strong>@comment.Author.Name:</strong> @comment.Content</p>
+                    <p><em>Posted on: @comment.CreatedAt.ToString("MMMM dd, yyyy")</em></p>
+                </div>
+            }
 
-<div class="actions">
-    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-    {
-        <a asp-action="Edit" asp-route-id="@Model.BlogId" class="btn btn-warning">Edit</a>
-        <a asp-action="Delete" asp-route-id="@Model.BlogId" class="btn btn-danger">Delete</a>
-    }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <h4>Add a Comment</h4>
+                <form asp-controller="Comment" asp-action="AddComment" method="post">
+                    <input type="hidden" name="BlogId" value="@Model.BlogId" />
+                    <div class="form-group">
+                        <label for="Content">Your Comment:</label>
+                        <textarea id="Content" name="Content" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Submit Comment</button>
+                </form>
+            }
+            else
+            {
+                <p><a href="@Url.Action("Login", "Auth")">Sign in</a> to add a comment.</p>
+            }
+        </div>
+
+        <div class="actions">
+            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.BlogId" class="btn btn-warning">Edit</a>
+
+                <form asp-action="Delete" asp-controller="Blog" method="post" class="d-inline">
+                    <input type="hidden" name="id" value="@Model.BlogId" />
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this blog?')">Delete</button>
+                </form>
+
+            }
+        </div>
+    </div>
 </div>

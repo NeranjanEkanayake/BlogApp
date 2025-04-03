@@ -44,8 +44,13 @@ namespace BlogApp.Services
 
         public async Task UpdateBlogAsync(BlogModel blogModel)
         {
-            _appDbContext.Blogs.Update(blogModel);
-            await _appDbContext.SaveChangesAsync();
+            var existingBlog = await _appDbContext.Blogs.FindAsync(blogModel.BlogId);
+            if (existingBlog != null)
+            {
+                existingBlog.Title = blogModel.Title;
+                existingBlog.Description = blogModel.Description;
+                await _appDbContext.SaveChangesAsync();
+            }           
         }
 
         public async Task DeleteBlogAsync(int id)

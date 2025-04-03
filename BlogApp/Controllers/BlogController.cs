@@ -93,7 +93,12 @@ namespace BlogApp.Controllers
         {
             var blog = await _blogService.GetBlogIdAsync(id);
 
-            if (blog == null || blog.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
+            if (blog == null)
+            {
+                return NotFound();
+            }
+
+            if (blog.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
             {
                 return Forbid();
             }
@@ -106,36 +111,57 @@ namespace BlogApp.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, BlogModel blogModel)
         {
-            if (id != blogModel.BlogId) return NotFound();
-
+            if (id != blogModel.BlogId) 
+            { 
+                return NotFound(); 
+            }
+            var existingBlog = await _blogService.GetBlogIdAsync(id);
+            if (existingBlog == null)
+            {
+                return NotFound();
+            }
             if (ModelState.IsValid)
             {
-                await _blogService.UpdateBlogAsync(blogModel);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    // Preserve original values that shouldn't change
+                    blogModel.UserId = existingBlog.UserId;
+                    blogModel.CreatedDate = existingBlog.CreatedDate;
+
+                    await _blogService.UpdateBlogAsync(blogModel);
+                    return RedirectToAction("Details", new { id = blogModel.BlogId });
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Error updating blog: " + ex.Message);
+                }
             }
             return View(blogModel);
         }
 
-        [Authorize(Roles = "Admin")]
-        // GET: BLogController/Delete/5
-        public async Task<IActionResult> Delete(int id)
-        {
-            var blog = await _blogService.GetBlogIdAsync(id);
-            if (blog == null || blog.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
-            {
-                return Forbid();
-            }
-            return View(blog);
-        }
-
-        // POST: BLogController/Delete/5
-        [HttpPost, ActionName("Delete")]
+    
+        [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            await _blogService.DeleteBlogAsync(id);
-            return RedirectToAction(nameof(Index));
+            var blog = await _blogService.GetBlogIdAsync((int)id);
+
+            if(blog == null)
+            {
+                return NotFound();
+            }
+            try
+            {
+                await _blogService.DeleteBlogAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error deleting: "+ex);
+                return RedirectToAction(nameof(Index));
+            }
+            
         }
     }
 }

@@ -81,38 +81,28 @@ namespace BlogApp.Controllers
                 Name = registerViewDTO.Name,
             };
 
-            //var isAdmin = User.IsInRole("Admin");
-            //if (!isAdmin)
-            //{
-            //    registerViewDTO.Role = "User"; // Prevent non-admins from registering as Admin
-            //}
             string role = "User";
             if (User.IsInRole("Admin"))
             {
-                // Admins can assign custom roles (e.g., via query parameter or hidden field)
-                role = HttpContext.Request.Form["Role"].ToString() ?? "User"; // Fallback to "User"
+                role = HttpContext.Request.Form["Role"].ToString() ?? "User";
             }
 
             var result = await _userManager.CreateAsync(user, registerViewDTO.Password);
 
             if (result.Succeeded)
             {
-                // Step 3: Ensure the role exists in AspNetRoles
                 if (!await _roleManager.RoleExistsAsync(role))
                 {
                     await _roleManager.CreateAsync(new IdentityRole(role));
                 }
 
-                // Step 4: Assign the role (saves to AspNetUserRoles)
                 await _userManager.AddToRoleAsync(user, role);
 
-                // Optional: Auto-sign-in
                 await _signInManager.SignInAsync(user, isPersistent: false);
 
                 return RedirectToAction("Login", "Auth");
             }
 
-            // Handle errors
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error.Description);
