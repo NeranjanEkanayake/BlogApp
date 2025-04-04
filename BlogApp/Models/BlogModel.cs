@@ -12,7 +12,7 @@ namespace BlogApp.Models
         [StringLength(50)]
         public required string Title { get; set; }
         
-        [StringLength(200)]
+        [StringLength(2000)]
         public required string Description { get; set; }
         
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;

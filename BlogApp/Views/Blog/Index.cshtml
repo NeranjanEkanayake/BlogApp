@@ -1,31 +1,38 @@
 ﻿@model List<BlogModel>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-        
+
     ViewData["Title"] = "Manage Blogs";
 }
 
-<h2 class="mb-4">Manage blogs</h2>
 @if (User.IsInRole("Admin"))
 {
     <a class="btn btn-success mb-3" asp-controller="Blog" asp-action="CreateBlog">Create new blog</a>
 }
 
 
-<div class="row">
+<div class="row g-5">
     @if (Model != null && Model.Count > 0)
     {
         @foreach (var blog in Model)
         {
-            <div class="col-md-4">
-                <div class="card shadow-sm mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">@blog.Title</h5>
-                        <p class="card-text">@blog.Description</p>
-                        <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.BlogId" class="btn btn-primary">View</a>
-                    </div>
-                </div>
+            <div class="col-md-8">
+                <article class="blog-post">
+                    <h4>@blog.Title</h4>
+                    <p>@blog.Description</p>
+                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.BlogId">View</a>
+                </article>
             </div>
+            <hr />
+            @* <div class="col-md-4"> *@
+            @*     <div class="card shadow-sm mb-3"> *@
+            @*         <div class="card-body"> *@
+            @*             <h5 class="card-title">@blog.Title</h5> *@
+            @*             <p class="card-text">@blog.Description</p> *@
+            @*             <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.BlogId" class="btn btn-primary">View</a> *@
+            @*         </div> *@
+            @*     </div> *@
+            @* </div> *@
         }
     }
     else
