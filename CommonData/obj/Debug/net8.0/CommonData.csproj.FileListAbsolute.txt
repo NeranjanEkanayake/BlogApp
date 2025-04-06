@@ -1,0 +1,15 @@
+D:\C# demo\BlogApp\CommonData\bin\Debug\net8.0\CommonData.deps.json
+D:\C# demo\BlogApp\CommonData\bin\Debug\net8.0\CommonData.runtimeconfig.json
+D:\C# demo\BlogApp\CommonData\bin\Debug\net8.0\CommonData.dll
+D:\C# demo\BlogApp\CommonData\bin\Debug\net8.0\CommonData.pdb
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.csproj.AssemblyReference.cache
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.AssemblyInfoInputs.cache
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.AssemblyInfo.cs
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.csproj.CoreCompileInputs.cache
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.sourcelink.json
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.dll
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\refint\CommonData.dll
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.pdb
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\CommonData.genruntimeconfig.cache
+D:\C# demo\BlogApp\CommonData\obj\Debug\net8.0\ref\CommonData.dll
