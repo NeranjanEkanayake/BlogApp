@@ -8,11 +8,13 @@ D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.runtimeconfig.json
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\BlogApp.pdb
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Humanizer.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Build.Locator.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -37,6 +39,12 @@ D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Mono.TextTemplating.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Npgsql.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
@@ -47,6 +55,7 @@ D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.Composition.Hosting.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.Composition.Runtime.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.Composition.TypedParts.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.IO.Pipelines.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\System.Text.Json.dll
@@ -116,6 +125,8 @@ D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\CommonData.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\CommonData.pdb
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.csproj.AssemblyReference.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.GeneratedMSBuildEditorConfig.editorconfig
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.AssemblyInfoInputs.cache
@@ -138,10 +149,10 @@ D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets\msbuild.build.BlogAp
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BlogApp.props
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BlogApp.props
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets.pack.json
+D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.csproj.Up2Date
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\refint\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.pdb
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.genruntimeconfig.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\ref\BlogApp.dll
-D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

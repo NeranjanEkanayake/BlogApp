@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using BlogApp.Services;
-using BlogApp.Models;
+using CommonData.Services;
+using CommonData.Models;
 using System.Security.Claims;
 using System.Reflection.Metadata;
 

@@ -1,9 +1,11 @@
-using BlogApp.Data;
-using BlogApp.Models;
-using BlogApp.Services;
+using CommonData.Data;
+using CommonData.Models;
+using CommonData.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace BlogApp
 {
@@ -15,6 +17,7 @@ namespace BlogApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddControllers();
             builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddIdentity<UserModel, IdentityRole>()
@@ -110,9 +113,7 @@ namespace BlogApp
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Blog}/{action=Index}/{id?}");
-            
-            //when this route triggers, the URL will look like below
-            // /Home/Index/1
+                        
             app.MapRazorPages();
 
             app.Run();

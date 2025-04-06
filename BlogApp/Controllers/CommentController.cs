@@ -1,5 +1,5 @@
-﻿using BlogApp.Models;
-using BlogApp.Services;
+﻿using CommonData.Models;
+using CommonData.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;

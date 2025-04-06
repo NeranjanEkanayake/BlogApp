@@ -1,4 +1,4 @@
-﻿@model BlogModel
+﻿@model CommonData.Models.BlogModel
 
 @{
     ViewData["Title"] = "View Single Blog";
@@ -8,7 +8,7 @@
 
         <div class="blog-description">
             <h4>@Model.Title</h4>
-            <p><strong>Created on:</strong> @Model.CreatedDate.ToString("MMMM dd, yyyy")</p>
+            <p><em>Created on: @Model.CreatedDate.ToString("MMMM dd, yyyy")</em></p>
             <p><strong>Description:</strong></p>
             <p>@Model.Description</p>
         </div>

@@ -1,4 +1,4 @@
-﻿@using BlogApp.Models.DTO
+﻿@using CommonData.Models.DTO
 @model LoginViewDTO
 
 @{
@@ -34,7 +34,7 @@
                             Login
                         </button>
                         <p class="small fw-bold mt-2 pt-1 mb-0">
-                            Don't have an account? <a asp-controller="Auth" asp-action="RegisterUser"
+                            Don't have an account? <a asp-controller="User" asp-action="RegisterUser"
                                                       class="link-danger">Register</a>
                         </p>
                     </div>
