@@ -1,6 +1,7 @@
 ﻿using CommonData.Models;
 using CommonData.Models.DTO;
 using CommonData.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -57,11 +58,11 @@ namespace BlogAPI.Controllers
 
             if (result.Succeeded)
             {
-                if(!await _roleManager.RoleExistsAsync(role))
+                if (!await _roleManager.RoleExistsAsync(role))
                 {
                     await _roleManager.CreateAsync(new IdentityRole(role));
                 }
-                await _userManager.AddToRoleAsync(user,role);
+                await _userManager.AddToRoleAsync(user, role);
 
                 return Ok(new
                 {
@@ -73,5 +74,17 @@ namespace BlogAPI.Controllers
 
             return BadRequest(result.Errors.Select(d => d.Description));
         }
+
+        //[HttpPost("login")]
+        //[AllowAnonymous]
+        //public async Task<ActionResult> Login(LoginViewDTO loginViewDTO)
+        //{
+        //    var user = await _userManager.FindByNameAsync(loginViewDTO.UserName);
+        //    if (user == null || !await _userManager.CheckPasswordAsync(user, loginViewDTO.Password))
+        //    {
+        //        return Unauthorized();
+        //    }
+        //    var token = 
+        //}
     }
 }
