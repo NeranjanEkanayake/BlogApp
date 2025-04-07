@@ -17,5 +17,7 @@ namespace CommonData.Services
         Task<IEnumerable<string>> GetUserRolesAsync(string userId);
         Task<bool> RoleExistsAsync(string role);
         Task<IdentityResult> CreateRoleAsync(string role);
+
+        Task<IdentityResult> DeleteUser(string userId);
     }
 }

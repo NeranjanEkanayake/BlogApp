@@ -78,7 +78,7 @@ namespace BlogApp.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var comments = await _blogService.GetBlogWithCommentsAsync(id);
-            //var blogs = await _blogService.GetBlogIdAsync(id);
+            
             if (comments == null)
             {
                 return NotFound();

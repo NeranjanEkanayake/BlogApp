@@ -72,12 +72,21 @@ namespace CommonData.ServiceClasses
             return await _appDbContext.Comments.Where(c => c.BlogId == blogId).ToListAsync();
         }
 
-        public async Task<BlogModel> GetBlogWithCommentsAsync(int blogId)
+        public async Task<BlogWithCommentDTO> GetBlogWithCommentsAsync(int blogId)
         {
-            return await _appDbContext.Blogs
-                .Include(b => b.Comments)
-                .ThenInclude(c => c.Author)
-                .FirstOrDefaultAsync(b => b.BlogId == blogId);
+            var blog = await _appDbContext.Blogs.Include(b => b.Author).Select(blog => new BlogWithCommentDTO()
+                {
+                    Id = blog.BlogId,
+                    Title = blog.Title,
+                    Description = blog.Description,
+                    Comments = blog.Comments
+                  
+                }).FirstOrDefaultAsync(b => b.Id == blogId);
+            //var saf=  await _appDbContext.Blogs
+            //     .Include(b => b.Comments)
+            //     .ThenInclude(c => c.Author)
+            //     .FirstOrDefaultAsync(b => b.BlogId == blogId);
+            return blog;
         }
 
         public async Task AddCommentAsync(CommentsModel comment)

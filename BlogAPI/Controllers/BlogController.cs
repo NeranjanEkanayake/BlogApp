@@ -36,6 +36,17 @@ namespace BlogAPI.Controllers
             return Ok(blog);
         }
 
+        [HttpGet("blogwithComments/{id}")]
+        public async Task<ActionResult> GetBlogAndComments(int id)
+        {
+            var blogs = await _blogService.GetBlogWithCommentsAsync(id);
+            if(blogs == null)
+            {
+                return NotFound();
+            }
+            return Ok(blogs);
+        }
+
         [HttpPost("createblog")]
         public async Task<ActionResult> CreateBlog(BlogDTO blogModel)
         {

@@ -118,5 +118,12 @@ namespace CommonData.ServiceClasses
                 await _roleManager.CreateAsync(new IdentityRole(role));
             }
         }
+
+        public async Task<IdentityResult> DeleteUser(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            
+            return await _userManager.DeleteAsync(user);
+        }
     }
 }

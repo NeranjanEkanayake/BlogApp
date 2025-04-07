@@ -74,6 +74,18 @@ namespace BlogAPI.Controllers
             }
 
             return BadRequest(result.Errors.Select(d => d.Description));
-        }       
+        }
+
+        [HttpDelete("delete/{id}")]
+        public async Task<ActionResult> DeleteUser(string id)
+        {
+            var user = await _userService.DeleteUser(id);
+
+            if (user == null)
+            {
+                return BadRequest(ModelState);
+            }
+            return Ok(user);
+        }
     }
 }

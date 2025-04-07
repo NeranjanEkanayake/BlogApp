@@ -14,7 +14,7 @@ namespace CommonData.Services
         Task DeleteBlogAsync(int id);
 
         Task<List<CommentsModel>> GetCommentsByBlogIdAsync(int blogId);
-        Task<BlogModel> GetBlogWithCommentsAsync(int blogId);
+        Task<BlogWithCommentDTO> GetBlogWithCommentsAsync(int blogId);
         Task AddCommentAsync(CommentsModel comment);
     }
 }
