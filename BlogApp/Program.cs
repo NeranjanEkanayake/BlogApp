@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using CommonData.ServiceClasses;
 
 namespace BlogApp
 {
@@ -41,6 +42,7 @@ namespace BlogApp
                 options.SlidingExpiration = true;
             });
 
+            
             builder.Services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;

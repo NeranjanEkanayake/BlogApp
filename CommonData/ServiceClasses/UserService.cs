@@ -1,23 +1,16 @@
-﻿using CommonData.Models;
+﻿using CommonData.DTO;
+using CommonData.Models;
+using CommonData.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CommonData.Services
+namespace CommonData.ServiceClasses
 {
-    public interface IUserService
-    {
-        Task<IdentityResult> CreateUserAsync(string userName, string password, string name, string role);
-        Task<IdentityResult> UpdateUserAsync(string userId, string userName, string password, string name);
-        Task<IdentityResult> ChangePasswordAsync(string userId, string currentPassword, string newPassword);
-        Task<IdentityResult> AddToRoleAsync(string userId, string role);
-        Task<IdentityResult> RemoveFromRoleAsync(string userId, string role);
-        Task<IEnumerable<UserModel>> GetAllUsersAsync();
-        Task<UserModel> GetUserByIdAsync(string userId);
-        Task<IEnumerable<string>> GetUserRolesAsync(string userId);
-        Task<bool> RoleExistsAsync(string role);
-        Task<IdentityResult> CreateRoleAsync(string role);
-    }
-
     public class UserService : IUserService
     {
         private readonly UserManager<UserModel> _userManager;
@@ -84,13 +77,18 @@ namespace CommonData.Services
         {
             var user = await _userManager.FindByIdAsync(userId);
 
-            return await _userManager.RemoveFromRoleAsync(user,role);
+            return await _userManager.RemoveFromRoleAsync(user, role);
         }
 
-        public async Task<IEnumerable<UserModel>> GetAllUsersAsync()
+        public async Task<IEnumerable<UserViewDTO>> GetAllUsersAsync()
         {
-            return await _userManager.Users.ToListAsync();
-        }
+            return await _userManager.Users.Select(u => new UserViewDTO()
+            {
+                Id = u.Id,
+                Name = u.Name,
+                UserName = u.UserName
+            }).ToListAsync();
+        }        
 
         public async Task<UserModel> GetUserByIdAsync(string userId)
         {

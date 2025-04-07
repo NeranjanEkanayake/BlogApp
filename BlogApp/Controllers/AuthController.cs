@@ -1,9 +1,9 @@
 ﻿using CommonData.Services;
 using CommonData.Models;
-using CommonData.Models.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using CommonData.DTO;
 
 namespace BlogApp.Controllers
 {

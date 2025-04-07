@@ -1,15 +1,14 @@
 ﻿using CommonData.Models;
+using CommonData.Services;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CommonData.Services
-{
-    public interface IAuthService
-    {
-        Task<Microsoft.AspNetCore.Identity.SignInResult> SignInAsync(string username, string password);
-        Task LogoutAsync();
-    }
-
+namespace CommonData.ServiceClasses
+{   
     public class AuthService : IAuthService
     {
         private readonly SignInManager<UserModel> _signInManager;

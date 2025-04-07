@@ -1,5 +1,5 @@
-﻿using CommonData.Models;
-using CommonData.Models.DTO;
+﻿using CommonData.DTO;
+using CommonData.Models;
 using CommonData.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -25,6 +25,7 @@ namespace BlogAPI.Controllers
         public async Task<ActionResult<IEnumerable<UserModel>>> GetUser()
         {
             var users = await _userService.GetAllUsersAsync();
+            
             return Ok(users);
         }
 
@@ -73,18 +74,6 @@ namespace BlogAPI.Controllers
             }
 
             return BadRequest(result.Errors.Select(d => d.Description));
-        }
-
-        //[HttpPost("login")]
-        //[AllowAnonymous]
-        //public async Task<ActionResult> Login(LoginViewDTO loginViewDTO)
-        //{
-        //    var user = await _userManager.FindByNameAsync(loginViewDTO.UserName);
-        //    if (user == null || !await _userManager.CheckPasswordAsync(user, loginViewDTO.Password))
-        //    {
-        //        return Unauthorized();
-        //    }
-        //    var token = 
-        //}
+        }       
     }
 }

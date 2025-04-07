@@ -5,6 +5,7 @@ using CommonData.Services;
 using CommonData.Models;
 using System.Security.Claims;
 using System.Reflection.Metadata;
+using CommonData.DTO;
 
 namespace BlogApp.Controllers
 {
@@ -23,7 +24,7 @@ namespace BlogApp.Controllers
             var blogs = await _blogService.GetAllAsync();
             if (blogs == null)
             {
-                blogs = new List<BlogModel>();
+                blogs = new List<BlogDTO>();
             }
             return View(blogs);
         }
@@ -46,7 +47,7 @@ namespace BlogApp.Controllers
                 {
                     Console.WriteLine("user id: "+User.FindFirstValue(ClaimTypes.NameIdentifier));
                     blogModel.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    blogModel.CreatedDate = DateTime.UtcNow;
+                    
                     try
                     {
                         if (ModelState.IsValid)
@@ -109,9 +110,9 @@ namespace BlogApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, BlogModel blogModel)
+        public async Task<IActionResult> Edit(int id, BlogDTO blogDTO)
         {
-            if (id != blogModel.BlogId) 
+            if (id != blogDTO.BlogId) 
             { 
                 return NotFound(); 
             }
@@ -124,18 +125,18 @@ namespace BlogApp.Controllers
             {
                 try
                 {
-                    blogModel.UserId = existingBlog.UserId;
-                    blogModel.CreatedDate = existingBlog.CreatedDate;
+                    blogDTO.UserId = existingBlog.UserId;
+                   
 
-                    await _blogService.UpdateBlogAsync(blogModel);
-                    return RedirectToAction("Details", new { id = blogModel.BlogId });
+                    await _blogService.UpdateBlogAsync(blogDTO);
+                    return RedirectToAction("Details", new { id = blogDTO.BlogId });
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("", "Error updating blog: " + ex.Message);
                 }
             }
-            return View(blogModel);
+            return View(blogDTO);
         }
 
     
