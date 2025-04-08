@@ -74,14 +74,44 @@ namespace CommonData.ServiceClasses
 
         public async Task<BlogWithCommentDTO> GetBlogWithCommentsAsync(int blogId)
         {
-            var blog = await _appDbContext.Blogs.Include(b => b.Author).Select(blog => new BlogWithCommentDTO()
-                {
-                    Id = blog.BlogId,
-                    Title = blog.Title,
-                    Description = blog.Description,
-                    Comments = blog.Comments
-                  
-                }).FirstOrDefaultAsync(b => b.Id == blogId);
+            var blogWithComments = await _appDbContext.Blogs
+         .Where(b => b.BlogId == blogId)
+         .Include(b => b.Comments)
+             .ThenInclude(c => c.Author)
+         .Select(blog => new BlogWithCommentDTO
+         {
+             Id = blog.BlogId,
+             Title = blog.Title,
+             Description = blog.Description,
+            
+             Comments = blog.Comments.Select(c => new CommentDTO
+             {                 
+                 Content = c.Content,
+                 CreatedAt = c.CreatedAt,
+                 Author = new UserViewDTO
+                 {
+                     Id = c.Author.Id,
+                     Name = c.Author.Name,
+                     UserName = c.Author.UserName
+                 }
+             }).ToList() // DTO list!
+         })
+         .FirstOrDefaultAsync();
+
+            return blogWithComments;
+        }
+
+        //For MVC project
+        public async Task<BlogModel> GetBlogAndComModelAsync(int blogId)
+        {
+            var blog = await _appDbContext.Blogs.Include(b => b.Author).Select(blog => new BlogModel()
+            {
+                BlogId = blog.BlogId,
+                Title = blog.Title,
+                Description = blog.Description,
+                Comments = blog.Comments
+
+            }).FirstOrDefaultAsync(b => b.BlogId == blogId);
             //var saf=  await _appDbContext.Blogs
             //     .Include(b => b.Comments)
             //     .ThenInclude(c => c.Author)

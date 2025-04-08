@@ -90,9 +90,19 @@ namespace CommonData.ServiceClasses
             }).ToListAsync();
         }        
 
-        public async Task<UserModel> GetUserByIdAsync(string userId)
+        public async Task<UserViewDTO> GetUserByIdAsync(string userId)
         {
-            return await _userManager.FindByIdAsync(userId);
+            var user =await _userManager.FindByIdAsync(userId);
+            if(user == null)
+            {
+                return null;
+            }
+            return new UserViewDTO
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Name = user.Name
+            };
         }
 
         public async Task<IEnumerable<string>> GetUserRolesAsync(string userId)

@@ -20,12 +20,26 @@ namespace CommonData.ServiceClasses
             _userManager = userManager;
         }
 
-        public async Task<Microsoft.AspNetCore.Identity.SignInResult> LoginAsync(string email, string password)
+        public async Task<UserModel> ValidateUserAsync(string username, string password)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+            if (user == null) { return null; }
+
+            var passwordValid = await _userManager.CheckPasswordAsync(user, password);
+            return passwordValid ? user : null;
+        }
+
+        public async Task<IList<string>> GetUserRole(UserModel user)
+        {
+            return await _userManager.GetRolesAsync(user);
+        }
+
+        public async Task<SignInResult> LoginAsync(string email, string password)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                return Microsoft.AspNetCore.Identity.SignInResult.Failed;
+                return SignInResult.Failed;
             }
 
             return await _signInManager.PasswordSignInAsync(user, password, isPersistent: false, lockoutOnFailure: false);
@@ -36,9 +50,9 @@ namespace CommonData.ServiceClasses
             await _signInManager.SignOutAsync();
         }
 
-        public Task<Microsoft.AspNetCore.Identity.SignInResult> SignInAsync(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<SignInResult> SignInAsync(string username, string password)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

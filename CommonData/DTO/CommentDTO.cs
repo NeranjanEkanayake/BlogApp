@@ -8,9 +8,8 @@ namespace CommonData.DTO
 {
     public class CommentDTO
     {
-        public int ID { get; set; }
         public string Content { get; set; }
-        public string UserId {  get; set; }
-        public int BlogId { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public UserViewDTO Author { get; set; }
     }
 }

@@ -3,11 +3,12 @@ using CommonData.Services;
 using Microsoft.AspNetCore.Mvc;
 using CommonData.DTO;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 namespace BlogAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogController : Controller
+    public class BlogController : ControllerBase
     {
         public readonly IBlogService _blogService;
 
@@ -16,7 +17,9 @@ namespace BlogAPI.Controllers
             _blogService = blogService;
         }
 
+        
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<BlogDTO>> GetBlogs()
         {
             var blogs = await _blogService.GetAllAsync();
@@ -26,7 +29,8 @@ namespace BlogAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<BlogModel>> GetBlogById(int id)
+        [Authorize]
+        public async Task<ActionResult<BlogDTO>> GetBlogById(int id)
         {
             var blog = await _blogService.GetBlogIdAsync(id);
             if (blog == null)
@@ -37,6 +41,7 @@ namespace BlogAPI.Controllers
         }
 
         [HttpGet("blogwithComments/{id}")]
+        [Authorize]
         public async Task<ActionResult> GetBlogAndComments(int id)
         {
             var blogs = await _blogService.GetBlogWithCommentsAsync(id);
@@ -47,7 +52,9 @@ namespace BlogAPI.Controllers
             return Ok(blogs);
         }
 
+        
         [HttpPost("createblog")]
+        [Authorize]
         public async Task<ActionResult> CreateBlog(BlogDTO blogModel)
         {
             var blog = new BlogModel
@@ -62,6 +69,7 @@ namespace BlogAPI.Controllers
             return Ok(blog);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("editblog/{id}")]
         public async Task<ActionResult> EditBlog(int id, BlogDTO blogDTO)
         {
@@ -78,6 +86,7 @@ namespace BlogAPI.Controllers
             return Ok(blog);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult> DeleteBlog(int id)
         {

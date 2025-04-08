@@ -13,7 +13,7 @@ namespace CommonData.Services
         Task<IdentityResult> AddToRoleAsync(string userId, string role);
         Task<IdentityResult> RemoveFromRoleAsync(string userId, string role);
         Task<IEnumerable<UserViewDTO>> GetAllUsersAsync();
-        Task<UserModel> GetUserByIdAsync(string userId);
+        Task<UserViewDTO> GetUserByIdAsync(string userId);
         Task<IEnumerable<string>> GetUserRolesAsync(string userId);
         Task<bool> RoleExistsAsync(string role);
         Task<IdentityResult> CreateRoleAsync(string role);
