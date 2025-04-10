@@ -1,12 +1,14 @@
 using BlogAPI.Configuration;
 using CommonData.Data;
 using CommonData.Models;
+using CommonData.MongoModels;
 using CommonData.ServiceClasses;
 using CommonData.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +29,12 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 3;
     options.Password.RequireNonAlphanumeric = false;
 });
+
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDbSettings"));
+
+builder.Services.AddSingleton<IMongoClient>(
+    s => new MongoClient(builder.Configuration.GetValue<string>("MongoDbSettings:ConnectionString")));
 
 builder.Services.AddAuthentication(options =>
 {
@@ -69,6 +77,8 @@ builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<JwtTokenService, JwtTokenService>();
+
+builder.Services.AddScoped<MongoCommentService>();
 
 builder.Services.AddControllers();
 

@@ -44,6 +44,8 @@ namespace BlogAPI.Controllers
         [Authorize]
         public async Task<ActionResult> GetBlogAndComments(int id)
         {
+           // var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var blogs = await _blogService.GetBlogWithCommentsAsync(id);
             if(blogs == null)
             {

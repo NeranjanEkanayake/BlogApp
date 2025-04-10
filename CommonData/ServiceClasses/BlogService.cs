@@ -14,10 +14,12 @@ namespace CommonData.ServiceClasses
     public class BlogService : IBlogService
     {
         private readonly AppDbContext _appDbContext;
+        private readonly MongoCommentService _mongoCommentService;
 
-        public BlogService(AppDbContext appDbContext)
+        public BlogService(AppDbContext appDbContext, MongoCommentService mongoCommentService)
         {
             _appDbContext = appDbContext;
+            _mongoCommentService = mongoCommentService;
         }
 
         public async Task<List<BlogDTO>> GetAllAsync()
@@ -74,50 +76,61 @@ namespace CommonData.ServiceClasses
 
         public async Task<BlogWithCommentDTO> GetBlogWithCommentsAsync(int blogId)
         {
-            var blogWithComments = await _appDbContext.Blogs
-         .Where(b => b.BlogId == blogId)
-         .Include(b => b.Comments)
-             .ThenInclude(c => c.Author)
-         .Select(blog => new BlogWithCommentDTO
-         {
-             Id = blog.BlogId,
-             Title = blog.Title,
-             Description = blog.Description,
-            
-             Comments = blog.Comments.Select(c => new CommentDTO
-             {                 
-                 Content = c.Content,
-                 CreatedAt = c.CreatedAt,
-                 Author = new UserViewDTO
-                 {
-                     Id = c.Author.Id,
-                     Name = c.Author.Name,
-                     UserName = c.Author.UserName
-                 }
-             }).ToList() // DTO list!
-         })
-         .FirstOrDefaultAsync();
+            var blog = await _appDbContext.Blogs
+            .Include(b => b.Author)
+            .FirstOrDefaultAsync(b => b.BlogId == blogId);
 
-            return blogWithComments;
-        }
+            if (blog == null)
+                return null;
 
-        //For MVC project
-        public async Task<BlogModel> GetBlogAndComModelAsync(int blogId)
-        {
-            var blog = await _appDbContext.Blogs.Include(b => b.Author).Select(blog => new BlogModel()
+            var mongoComments = await _mongoCommentService.GetCommentsByBlogIdAsync(blogId);
+
+            var userIds = mongoComments.Select(c => c.UserId).Distinct().ToList();
+
+            var users = await _appDbContext.Users
+                .Where(u => userIds.Contains(u.Id))
+                .ToDictionaryAsync(u => u.Id);
+
+            var dto = new BlogWithCommentDTO
             {
-                BlogId = blog.BlogId,
+                Id = blog.BlogId,
                 Title = blog.Title,
                 Description = blog.Description,
-                Comments = blog.Comments
+                Comments = mongoComments.Select(c => new CommentDTO
+                {
+                    Content = c.Content,
+                    CreatedAt = c.CreatedAt,
+                    Author = users.TryGetValue(c.UserId, out var user)
+                        ? new UserViewDTO
+                        {
+                            Id = user.Id,
+                            Name = user.Name,
+                            UserName = user.UserName
+                        }
+                        : null
+                }).ToList()
+            };
 
-            }).FirstOrDefaultAsync(b => b.BlogId == blogId);
-            //var saf=  await _appDbContext.Blogs
-            //     .Include(b => b.Comments)
-            //     .ThenInclude(c => c.Author)
-            //     .FirstOrDefaultAsync(b => b.BlogId == blogId);
-            return blog;
+            return dto;
         }
+
+        ////For MVC project
+        //public async Task<BlogModel> GetBlogAndComModelAsync(int blogId)
+        //{
+        //    var blog = await _appDbContext.Blogs.Include(b => b.Author).Select(blog => new BlogModel()
+        //    {
+        //        BlogId = blog.BlogId,
+        //        Title = blog.Title,
+        //        Description = blog.Description,
+        //        Comments = blog.Comments
+
+        //    }).FirstOrDefaultAsync(b => b.BlogId == blogId);
+        //    //var saf=  await _appDbContext.Blogs
+        //    //     .Include(b => b.Comments)
+        //    //     .ThenInclude(c => c.Author)
+        //    //     .FirstOrDefaultAsync(b => b.BlogId == blogId);
+        //    return blog;
+        //}
 
         public async Task AddCommentAsync(CommentsModel comment)
         {

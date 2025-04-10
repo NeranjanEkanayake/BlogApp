@@ -156,3 +156,9 @@ D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\refint\BlogApp.dll
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.pdb
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\BlogApp.genruntimeconfig.cache
 D:\C# demo\BlogApp\BlogApp\obj\Debug\net8.0\ref\BlogApp.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\DnsClient.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\MongoDB.Bson.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\MongoDB.Driver.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\SharpCompress.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\Snappier.dll
+D:\C# demo\BlogApp\BlogApp\bin\Debug\net8.0\ZstdSharp.dll

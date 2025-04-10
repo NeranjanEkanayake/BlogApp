@@ -3,10 +3,9 @@ using CommonData.Models;
 using CommonData.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using CommonData.ServiceClasses;
+using CommonData.MongoModels;
+using MongoDB.Driver;
 
 namespace BlogApp
 {
@@ -27,6 +26,8 @@ namespace BlogApp
 
             builder.Services.AddScoped<IBlogService, BlogService>();
             builder.Services.AddScoped<IUserService, UserService>();
+
+            builder.Services.AddScoped<MongoCommentService>();
 
             builder.Services.AddControllersWithViews();
 
@@ -52,7 +53,12 @@ namespace BlogApp
                 options.Password.RequireNonAlphanumeric = false;
             });
 
+            //mongodb comments collection's settings
+            builder.Services.Configure<MongoDbSettings>(
+                builder.Configuration.GetSection("MongoDbSettings"));
 
+            builder.Services.AddSingleton<IMongoClient>(
+                m => new MongoClient(builder.Configuration.GetValue<string>("MongoDbSettings:ConnectionString")));
             var app = builder.Build();
 
             if (!app.Environment.IsDevelopment())

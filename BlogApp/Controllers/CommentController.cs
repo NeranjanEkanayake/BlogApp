@@ -1,4 +1,5 @@
-﻿using CommonData.Models;
+﻿using CommonData.MongoModels;
+using CommonData.ServiceClasses;
 using CommonData.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,11 @@ namespace BlogApp.Controllers
     public class CommentController : Controller
     {
         private readonly IBlogService _blogService;
+        private readonly MongoCommentService _mongoCommentService;
         
-        public CommentController(IBlogService blogService, IUserService userService)
+        public CommentController(IBlogService blogService, MongoCommentService mongoCommentService,IUserService userService)
         {
+            _mongoCommentService = mongoCommentService;
             _blogService = blogService;
         }
 
@@ -27,7 +30,7 @@ namespace BlogApp.Controllers
                 return Unauthorized();
             }
             
-            var comment = new CommentsModel
+            var comment = new CommentsMongo
             {
                 BlogId = blogId,
                 Content = content,
@@ -35,7 +38,7 @@ namespace BlogApp.Controllers
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow //change this, this is just for ref
             };
-            await _blogService.AddCommentAsync(comment);
+            await _mongoCommentService.CommentsAsync(comment);
 
             return RedirectToAction("Details","Blog", new {id = blogId});
         }
