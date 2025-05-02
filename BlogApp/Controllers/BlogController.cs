@@ -6,15 +6,18 @@ using CommonData.Models;
 using System.Security.Claims;
 using System.Reflection.Metadata;
 using CommonData.DTO;
+using CommonData.Data;
+using CommonData.ServiceClasses;
 
 namespace BlogApp.Controllers
 {
     public class BlogController : Controller
     {
         private readonly IBlogService _blogService;
-
-        public BlogController(IBlogService blogService)
+        private readonly MongoCommentService _mongoCommentService;
+        public BlogController(IBlogService blogService, MongoCommentService mongoCommentService)
         {
+            _mongoCommentService = mongoCommentService;
             _blogService = blogService;
         }
 
@@ -83,6 +86,7 @@ namespace BlogApp.Controllers
             {
                 return NotFound();
             }
+
             
             //ViewBag.Comments = comments;
             return View(comments);

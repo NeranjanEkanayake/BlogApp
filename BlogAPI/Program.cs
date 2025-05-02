@@ -71,6 +71,18 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
+});
+
 builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<IBlogService, BlogService>();
@@ -84,8 +96,11 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
+
+app.UseCors("AllowAngularApp");
 
 app.UseAuthentication();
 app.UseAuthorization();

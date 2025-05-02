@@ -3,11 +3,8 @@ using CommonData.DTO;
 using CommonData.Models;
 using CommonData.Services;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MongoDB.Bson.Serialization;
+using NpgsqlTypes;
 
 namespace CommonData.ServiceClasses
 {
@@ -88,8 +85,8 @@ namespace CommonData.ServiceClasses
             var userIds = mongoComments.Select(c => c.UserId).Distinct().ToList();
 
             var users = await _appDbContext.Users
-                .Where(u => userIds.Contains(u.Id))
-                .ToDictionaryAsync(u => u.Id);
+               .Where(u => userIds.Contains(u.Id))
+               .ToDictionaryAsync(u => u.Id);
 
             var dto = new BlogWithCommentDTO
             {
@@ -114,28 +111,20 @@ namespace CommonData.ServiceClasses
             return dto;
         }
 
-        ////For MVC project
-        //public async Task<BlogModel> GetBlogAndComModelAsync(int blogId)
-        //{
-        //    var blog = await _appDbContext.Blogs.Include(b => b.Author).Select(blog => new BlogModel()
-        //    {
-        //        BlogId = blog.BlogId,
-        //        Title = blog.Title,
-        //        Description = blog.Description,
-        //        Comments = blog.Comments
-
-        //    }).FirstOrDefaultAsync(b => b.BlogId == blogId);
-        //    //var saf=  await _appDbContext.Blogs
-        //    //     .Include(b => b.Comments)
-        //    //     .ThenInclude(c => c.Author)
-        //    //     .FirstOrDefaultAsync(b => b.BlogId == blogId);
-        //    return blog;
-        //}
-
         public async Task AddCommentAsync(CommentsModel comment)
         {
             _appDbContext.Comments.Add(comment);
             await _appDbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdateCommentAsync(CommentsModel comment)
+        {
+            _appDbContext.Comments.Update(comment);
+            await _appDbContext.SaveChangesAsync();
+        }
+        public async Task DeleteCommentAsync(int id)
+        {
+
         }
     }
 }

@@ -34,17 +34,23 @@ namespace BlogAPI.Controllers
                 return Unauthorized("Invalid login attempt");
             }
 
-            var token = GenerateJwtToken(user);
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var token = GenerateJwtToken(user, userRoles);
             return Ok(new { token });
         }
 
-        private string GenerateJwtToken(UserModel user)
+        private string GenerateJwtToken(UserModel user, IList<string> roles)
         {
-            var claims = new[]
+            var claims = new List<Claim>()
             {
             new Claim(ClaimTypes.Name, user.UserName),
             new Claim(ClaimTypes.NameIdentifier, user.Id)
-        };
+            };
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -53,7 +59,7 @@ namespace BlogAPI.Controllers
                 _configuration["Jwt:Issuer"],
                 _configuration["Jwt:Audience"],
                 claims,
-                expires: DateTime.Now.AddDays(1),
+                expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds
             );
 

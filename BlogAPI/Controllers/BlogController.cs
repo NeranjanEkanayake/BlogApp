@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using CommonData.DTO;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using CommonData.ServiceClasses;
 namespace BlogAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -11,15 +12,16 @@ namespace BlogAPI.Controllers
     public class BlogController : ControllerBase
     {
         public readonly IBlogService _blogService;
+        public readonly MongoCommentService _mongoCommentService;
 
-        public BlogController(IBlogService blogService)
+        public BlogController(IBlogService blogService, MongoCommentService mongoCommentService)
         {
+            _mongoCommentService = mongoCommentService;
             _blogService = blogService;
         }
 
         
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult<BlogDTO>> GetBlogs()
         {
             var blogs = await _blogService.GetAllAsync();
@@ -28,8 +30,7 @@ namespace BlogAPI.Controllers
             return Ok(blogs);
         }
 
-        [HttpGet("{id}")]
-        [Authorize]
+        [HttpGet("{id}")]        
         public async Task<ActionResult<BlogDTO>> GetBlogById(int id)
         {
             var blog = await _blogService.GetBlogIdAsync(id);
@@ -40,17 +41,15 @@ namespace BlogAPI.Controllers
             return Ok(blog);
         }
 
-        [HttpGet("blogwithComments/{id}")]
-        [Authorize]
+        [HttpGet("blogwithComments/{id}")]        
         public async Task<ActionResult> GetBlogAndComments(int id)
         {
-           // var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
             var blogs = await _blogService.GetBlogWithCommentsAsync(id);
             if(blogs == null)
             {
                 return NotFound();
             }
+
             return Ok(blogs);
         }
 

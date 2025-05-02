@@ -27,21 +27,6 @@ namespace BlogAPI.Controllers
             _jwtTokenService = jwtTokenService;
         }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginViewDTO loginViewDTO)
-        {
-            var user = await _authService.ValidateUserAsync(loginViewDTO.UserName, loginViewDTO.Password);
-            if(user == null)
-            {
-                return Unauthorized();
-            }
-
-            var roles = await _authService.GetUserRole(user);
-            var token = _jwtTokenService.GenerateTokenAsync(user, roles);
-
-            return Ok(new { token });
-        }
-
         [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserModel>>> GetUser()
@@ -62,8 +47,7 @@ namespace BlogAPI.Controllers
             }
             return Ok(user);
         }
-
-        [Authorize]
+        
         [HttpPost("register")]
         public async Task<ActionResult<UserModel>> RegisterUser(RegisterViewDTO registerViewDTO)
         {
