@@ -44,12 +44,12 @@ namespace BlogAPI.Controllers
         {
             var claims = new List<Claim>()
             {
-            new Claim(ClaimTypes.Name, user.UserName),
-            new Claim(ClaimTypes.NameIdentifier, user.Id)
+            new Claim("username", user.UserName),
+            new Claim("userId", user.Id)
             };
             foreach (var role in roles)
             {
-                claims.Add(new Claim(ClaimTypes.Role, role));
+                claims.Add(new Claim("userRole", role));
             }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

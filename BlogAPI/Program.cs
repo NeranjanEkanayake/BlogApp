@@ -87,7 +87,7 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
+//builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<JwtTokenService, JwtTokenService>();
 
 builder.Services.AddScoped<MongoCommentService>();

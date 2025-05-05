@@ -3,12 +3,59 @@
   "WorkspaceRootPath": "D:\\C# demo\\BlogApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|d:\\c# demo\\blogapp\\blogapi\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Neranjan\\AppData\\Local\\SourceServer\\f35a273f847e61bb826af1dd32c92d532b7b94d70dd765ebc314dbce3d51e888\\BlogAPI\\Controllers\\CommentController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|d:\\c# demo\\blogapp\\commondata\\dto\\addcommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|solutionrelative:commondata\\dto\\addcommentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|d:\\c# demo\\blogapp\\commondata\\models\\commentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|solutionrelative:commondata\\models\\commentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|d:\\c# demo\\blogapp\\commondata\\serviceclasses\\mongocommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|solutionrelative:commondata\\serviceclasses\\mongocommentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|d:\\c# demo\\blogapp\\blogapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|d:\\c# demo\\blogapp\\blogapi\\configuration\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\configuration\\jwtsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|d:\\c# demo\\blogapp\\blogapi\\configuration\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\configuration\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|d:\\c# demo\\blogapp\\blogapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|d:\\c# demo\\blogapp\\commondata\\mongomodels\\commentsmongo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|solutionrelative:commondata\\mongomodels\\commentsmongo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|d:\\c# demo\\blogapp\\commondata\\serviceclasses\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|solutionrelative:commondata\\serviceclasses\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|d:\\c# demo\\blogapp\\commondata\\mongomodels\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|solutionrelative:commondata\\mongomodels\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|d:\\c# demo\\blogapp\\commondata\\serviceinterfaces\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48C61CA4-755E-4C8B-8998-8EFDEE38D103}|CommonData\\CommonData.csproj|solutionrelative:commondata\\serviceinterfaces\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|d:\\c# demo\\blogapp\\blogapi\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1BEAEDE-B610-47EE-9541-1481EE2D2F37}|BlogAPI\\BlogAPI.csproj|solutionrelative:blogapi\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +65,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 405,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\C# demo\\BlogApp\\BlogAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "BlogAPI\\appsettings.json",
-              "ToolTip": "D:\\C# demo\\BlogApp\\BlogAPI\\appsettings.json",
-              "RelativeToolTip": "BlogAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-01T17:28:56.992Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -63,15 +97,182 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommentController.cs",
+              "DocumentMoniker": "C:\\Users\\Neranjan\\AppData\\Local\\SourceServer\\f35a273f847e61bb826af1dd32c92d532b7b94d70dd765ebc314dbce3d51e888\\BlogAPI\\Controllers\\CommentController.cs",
+              "ToolTip": "C:\\Users\\Neranjan\\AppData\\Local\\SourceServer\\f35a273f847e61bb826af1dd32c92d532b7b94d70dd765ebc314dbce3d51e888\\BlogAPI\\Controllers\\CommentController.cs [Read Only]",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAIAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T18:19:35.024Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddCommentDTO.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\CommonData\\DTO\\AddCommentDTO.cs",
+              "RelativeDocumentMoniker": "CommonData\\DTO\\AddCommentDTO.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\CommonData\\DTO\\AddCommentDTO.cs",
+              "RelativeToolTip": "CommonData\\DTO\\AddCommentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T18:09:56.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CommentsModel.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\CommonData\\Models\\CommentsModel.cs",
+              "RelativeDocumentMoniker": "CommonData\\Models\\CommentsModel.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\CommonData\\Models\\CommentsModel.cs",
+              "RelativeToolTip": "CommonData\\Models\\CommentsModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T17:55:02.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CommentController.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\BlogAPI\\Controllers\\CommentController.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Controllers\\CommentController.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\BlogAPI\\Controllers\\CommentController.cs",
+              "RelativeToolTip": "BlogAPI\\Controllers\\CommentController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T05:27:18.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\C# demo\\BlogApp\\BlogAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "BlogAPI\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\C# demo\\BlogApp\\BlogAPI\\Controllers\\AuthController.cs",
               "RelativeToolTip": "BlogAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAuwDIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T17:22:34.718Z",
+              "WhenOpened": "2025-05-05T17:51:37.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "JwtSettings.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\BlogAPI\\Configuration\\JwtSettings.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Configuration\\JwtSettings.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\BlogAPI\\Configuration\\JwtSettings.cs",
+              "RelativeToolTip": "BlogAPI\\Configuration\\JwtSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T17:51:18.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\BlogAPI\\Configuration\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Configuration\\JwtTokenService.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\BlogAPI\\Configuration\\JwtTokenService.cs",
+              "RelativeToolTip": "BlogAPI\\Configuration\\JwtTokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T17:51:15.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\BlogAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "BlogAPI\\appsettings.json",
+              "ToolTip": "D:\\C# demo\\BlogApp\\BlogAPI\\appsettings.json",
+              "RelativeToolTip": "BlogAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-05T17:51:00.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\BlogAPI\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "BlogAPI\\Controllers\\BlogController.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\BlogAPI\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "BlogAPI\\Controllers\\BlogController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T09:05:30.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MongoCommentService.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\CommonData\\ServiceClasses\\MongoCommentService.cs",
+              "RelativeDocumentMoniker": "CommonData\\ServiceClasses\\MongoCommentService.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\CommonData\\ServiceClasses\\MongoCommentService.cs",
+              "RelativeToolTip": "CommonData\\ServiceClasses\\MongoCommentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T08:39:03.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IBlogService.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\CommonData\\ServiceInterfaces\\IBlogService.cs",
+              "RelativeDocumentMoniker": "CommonData\\ServiceInterfaces\\IBlogService.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\CommonData\\ServiceInterfaces\\IBlogService.cs",
+              "RelativeToolTip": "CommonData\\ServiceInterfaces\\IBlogService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T09:20:07.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BlogService.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\CommonData\\ServiceClasses\\BlogService.cs",
+              "RelativeDocumentMoniker": "CommonData\\ServiceClasses\\BlogService.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\CommonData\\ServiceClasses\\BlogService.cs",
+              "RelativeToolTip": "CommonData\\ServiceClasses\\BlogService.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAmwIAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T09:20:17.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MongoDbSettings.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\CommonData\\MongoModels\\MongoDbSettings.cs",
+              "RelativeDocumentMoniker": "CommonData\\MongoModels\\MongoDbSettings.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\CommonData\\MongoModels\\MongoDbSettings.cs",
+              "RelativeToolTip": "CommonData\\MongoModels\\MongoDbSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T09:21:56.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CommentsMongo.cs",
+              "DocumentMoniker": "D:\\C# demo\\BlogApp\\CommonData\\MongoModels\\CommentsMongo.cs",
+              "RelativeDocumentMoniker": "CommonData\\MongoModels\\CommentsMongo.cs",
+              "ToolTip": "D:\\C# demo\\BlogApp\\CommonData\\MongoModels\\CommentsMongo.cs",
+              "RelativeToolTip": "CommonData\\MongoModels\\CommentsMongo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T08:41:46.743Z",
               "EditorCaption": ""
             }
           ]

@@ -10,6 +10,8 @@ namespace CommonData.DTO
     {
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public UserViewDTO Author { get; set; }
+        public int BlogId {  get; set; }
     }
 }

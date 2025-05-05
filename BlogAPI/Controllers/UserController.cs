@@ -12,19 +12,15 @@ namespace BlogAPI.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        private readonly IAuthService _authService;
-        private readonly JwtTokenService _jwtTokenService;
         public readonly IUserService _userService;
         public readonly UserManager<UserModel> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         public UserController(IUserService userService, UserManager<UserModel> userManager, RoleManager<IdentityRole> roleManager,
-            IAuthService authService, JwtTokenService jwtTokenService)
+            JwtTokenService jwtTokenService)
         {
             _userManager = userManager;
             _userService = userService;
-            _roleManager = roleManager;
-            _authService = authService;
-            _jwtTokenService = jwtTokenService;
+            _roleManager = roleManager;     
         }
 
         [Authorize]

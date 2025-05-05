@@ -139,17 +139,22 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "blogId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "content",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "commentDTO",
+        "Type": "CommonData.DTO.AddCommentDTO",
+        "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "CommonData.DTO.CommentDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "BlogAPI.Controllers.UserController",
